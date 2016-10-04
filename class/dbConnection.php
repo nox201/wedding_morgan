@@ -2,7 +2,7 @@
 
 //TABLE WILL BE CALLED wedding_morgan
 //WILL HAVE AUTO-INCREMENT ID (UNSIGNED INT), NAME (VARCHAR(50)), ATTENDING (BOOL('true','false')), FOODCHOICE (ENUM ('OPTION1','OPTION2'), MESSAGE (VARCHAR (250)), CREATED (DATETIME)
-
+//fascjkfsdjkfsdjkl;
 //----------------
 //DATABASE CONNECTION CLASS
 //Controls ability to connect and interact with the database
