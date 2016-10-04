@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- CSS library -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/flipclock.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--FlipClock-->
+<script src="js/flipclock/compiled/flipclock.js"></script>
+<!--Custom JS-->
+<script>
+function myMap() {
+  var myCenter = new google.maps.LatLng(52.7537054,-2.7411935);
+  var mapCanvas = document.getElementById("map");
+  var mapOptions = {center: myCenter, zoom: 13};
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+  var marker = new google.maps.Marker({position:myCenter});
+  marker.setMap(map);
+}
+</script>
+</head>
+
+<body>
+
+<!-- <div id="map"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_b3jZEe13iE67IxsONGS9XH-m6GuoIKI&callback=myMap"></script> -->
+
+<div class="container-fluid bg bg-silver text-center">
+	
+	<!--NAVBAR-->
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+		<div class="navbar-header">
+		  <a class="navbar-brand precious" href="home.html">WebSiteName</a>
+		</div>
+		<ul class="nav navbar-nav">
+		  <li><a href="home.html">Home</a></li>
+		  <li><a href="photo.html">Photos</a></li>
+		  <li class="active"><a href="info.html">Information</a></li>
+		  <li><a href="rsvp.html">RSVP</a></li>
+		  <li><a href="pinboard.html">Pinboard</a></li>
+		</ul>
+	  </div>
+	</nav>
+	
+	<!--TITLE-->
+	<div class="row">
+		<div class="col-md-12">
+			<div class="well bg-cream">
+				<h1 class="title">Further Information</h1>
+			</div>
+		</div>
+	</div>
+	
+	<!--KEY POINTS-->
+	<div class="row">
+		<div class="col-md-12">
+			<div class="well bg-cream">
+				<dl class="subheading-text">
+					<dt class="text-left fuchsia precious">What:</dt>
+					<dd>- FILLER</dd>
+					<dt class="text-left fuchsia precious">Who:</dt>
+					<dd>- FILLER</dd>
+					<dt class="text-left fuchsia precious">When:</dt>
+					<dd>- FILLER</dd>
+					<dt class="text-left fuchsia precious">Where:</dt>
+					<dd>- FILLER</dd>
+				<dl>
+			</div>
+		</div>
+	</div>
+	
+	<!--VENUE INFORMATION-->
+	<div class="row">
+		<div class="col-md-6">
+			<div class="well bg-cream">
+				<h1 class="heading-text">LOCATION</h1>
+				<p>Vestibulum a blandit eros, eu dictum dolor. Sed sit amet congue quam. Vivamus viverra a odio nec euismod. Nulla iaculis, quam sed elementum semper, mi urna interdum dolor, id convallis purus eros eu leo. Etiam molestie metus leo, sit amet maximus justo pretium eu. Nullam eget erat tellus. Fusce semper dignissim varius. Donec id quam leo. Nullam at tellus ut quam rhoncus maximus a at ex. Proin mattis in sem id pulvinar. Aenean semper diam auctor mollis dapibus. In hac habitasse platea dictumst. Aliquam finibus felis vitae convallis ultrices. In aliquam tincidunt vestibulum.</p>
+			</div>
+			<div class="well bg-cream">
+				<h1 class="heading-text">DIRECTIONS</h1>
+				<p>Vestibulum a blandit eros, eu dictum dolor. Sed sit amet congue quam. Vivamus viverra a odio nec euismod. Nulla iaculis, quam sed elementum semper, mi urna interdum dolor, id convallis purus eros eu leo. Etiam molestie metus leo, sit amet maximus justo pretium eu. Nullam eget erat tellus. Fusce semper dignissim varius. Donec id quam leo. Nullam at tellus ut quam rhoncus maximus a at ex.</p><a href="google.com">Link</a>
+			</div>
+		</div>
+		<div class="col-md-5">
+			<img class="well" src="https://placehold.it/500x500"/>
+		</div>
+	</div>
+	
+	<!--GOOGLE MAPS IMAGE-->
+	<div class="row">
+		<div class="col-md-12">
+			<div class="well">
+				<div id="map"></div>
+				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_b3jZEe13iE67IxsONGS9XH-m6GuoIKI&callback=myMap"></script>
+			</div>
+		</div>
+	</div>
+	
+	<!--ACCOMODATION INFORMATION-->
+	<div class="row">
+		<div class="col-md-6">
+			<img class="well" src="https://placehold.it/500x500"/>
+		</div>
+		<div class="col-md-6">
+			<div class="well bg-cream">
+				<h1 class="heading-text">TITLE</h1>
+				<p>Vestibulum a blandit eros, eu dictum dolor. Sed sit amet congue quam. Vivamus viverra a odio nec euismod. Nulla iaculis, quam sed elementum semper, mi urna interdum dolor, id convallis purus eros eu leo. Etiam molestie metus leo, sit amet maximus justo pretium eu. Nullam eget erat tellus. Fusce semper dignissim varius. Donec id quam leo. Nullam at tellus ut quam rhoncus maximus a at ex. Proin mattis in sem id pulvinar. Aenean semper diam auctor mollis dapibus. In hac habitasse platea dictumst. Aliquam finibus felis vitae convallis ultrices. In aliquam tincidunt vestibulum.</p>
+			</div>
+			<div class="well bg-cream">
+				<h1 class="heading-text">HEADING</h1>
+				<p>Vestibulum a blandit eros, eu dictum dolor. Sed sit amet congue quam. Vivamus viverra a odio nec euismod. Nulla iaculis, quam sed elementum semper, mi urna interdum dolor, id convallis purus eros eu leo. Etiam molestie metus leo, sit amet maximus justo pretium eu. Nullam eget erat tellus. Fusce semper dignissim varius. Donec id quam leo. Nullam at tellus ut quam rhoncus maximus a at ex.</p><a href="google.com">Link</a>
+			</div>
+		</div>
+	</div>
+	
+	<!--FOOTER-->
+	<div class="footer">
+		<p>Aliquam finibus felis vitae convallis ultrices. In aliquam tincidunt vestibulum.</p>
+	</div>
+	
+</div>
+
+</body>
