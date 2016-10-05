@@ -2,7 +2,7 @@
 
 //TABLE WILL BE CALLED wedding_morgan
 //WILL HAVE AUTO-INCREMENT ID (UNSIGNED INT), NAME (VARCHAR(50)), ATTENDING (BOOL('true','false')), FOODCHOICE (ENUM ('OPTION1','OPTION2'), MESSAGE (VARCHAR (250)), CREATED (DATETIME)
-
+//fascjkfsdjkfsdjkl;
 //----------------
 //DATABASE CONNECTION CLASS
 //Controls ability to connect and interact with the database
@@ -60,6 +60,36 @@ class dbConnection {
 			echo $sql . "<br />" . $e->getMessage();
 			
 		}
+	}
+	
+	//* UPDATE FUNCTION
+	//* Runs an SQL update quest on a $tableName with $values where id = $id
+	//---------------------------
+	function update($tableName, $values, $id){
+		
+		//INITALIZE SET VALUES ARRAY
+		$setValues = array();
+		
+		//SPLIT VALUES ARRAY INTO STRING
+		foreach($values as $key => $value){
+			$setValues[] = $key . '=' . $value . ',';
+		}
+		
+		//CREATE QUERY
+		private $sql = 'UPDATE ' . $tableName . ' SET ' . implode(' ', $setValues) . ' WHERE id = ' . $id;
+		
+		try{
+			//RUN UPDATE QUERY (USES EXEC BECAUSE NO RESULTS RETURNED)
+			$dbConnection->exec($sql);
+			//RETURN LAST INSERTED ID
+			return $dbConnection->lastInsertId();
+			
+		}catch(PDOException $e){
+			//ECHO MESSAGE DIRECTLY OUT TO SCREEN (TODO: HAVE THE ERROR MESSAGE LOGGED INTO A TABLE)
+			echo $sql . "<br />" . $e->getMessage();
+			
+		}
+		
 	}
 	
 	//* DIRECTQUERY FUNCTION
