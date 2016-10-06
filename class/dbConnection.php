@@ -1,8 +1,5 @@
 <?php
 
-//TABLE WILL BE CALLED wedding_morgan
-//WILL HAVE AUTO-INCREMENT ID (UNSIGNED INT), NAME (VARCHAR(50)), ATTENDING (BOOL('true','false')), FOODCHOICE (ENUM ('OPTION1','OPTION2'), MESSAGE (VARCHAR (250)), CREATED (DATETIME)
-//fascjkfsdjkfsdjkl;
 //----------------
 //DATABASE CONNECTION CLASS
 //Controls ability to connect and interact with the database
@@ -14,13 +11,13 @@ class dbConnection {
 	//CONSTANTS
 	//----------------
 	
-	private $servername = '';
+	private $servername = 'mysql:host=localhost;dbname=wedding_morgan';
 	
-	private $dbname = '';
-	
-	private $username = '';
+	private $username = 'root';
 	
 	private $password = '';
+	
+	protected static $dbConnection;
 
 	//----------------
 	//METHODS
@@ -30,13 +27,13 @@ class dbConnection {
 	//* Creates a connection to the database when object is instatiated
 	//-------------------------------------
 	//IS PRIVATE SO OBJECT CONNECTION CANNOT BE CREATED TWICE. USE connect() TO CREATE INSTANCE OF CLASS.
-	private function __construct{
-		
+	function __construct() {
+
 	try{
-		//SERVERNAME WILL BE LOCALHOST?
-		$dbConnection = new PDO("$servername;$dbname",$username,$password);
+		//CREATE CONNECTION
+		self::$dbConnection = new PDO($this->servername,$this->username,$this->password);
 		//SETS THE PDO TO ERROR MODE, MEANING IT CAN THROW EXCEPTIONS
-		self::$dbConnection->setAttribute(PDO::ATTR_ERRRMODE, PDO::ERRMODE_EXCPETION);
+		self::$dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		}catch(PDOException $e){
 			echo $e->getMessage();
 		}
@@ -47,13 +44,11 @@ class dbConnection {
 	//------------------------------------
 	function insertInto($tableName, $values){
 		//AUTOMATICALLY BREAKS VALUES DOWN INTO COLUMN/VALUE PAIRS FOR INSERTION
-		private $sql = 'INSERT INTO ' . $tableName . ' ("' . implode('", "', array_keys($values)) . '") VALUES ("'. implode($values, '","') .'")';
-		
+		$sql = 'INSERT INTO ' . $tableName . ' (`' . implode('`, `', array_keys($values)) . '`) VALUES ("'. implode($values, '","') .'")';
+
 		try{
 			//RUN INSERT QUERY (USES EXEC BECAUSE NO RESULTS RETURNED)
-			$dbConnection->exec($sql);
-			//RETURN LAST INSERTED ID
-			return $dbConnection->lastInsertId();
+			self::$dbConnection->exec($sql);
 			
 		}catch(PDOException $e){
 			//ECHO MESSAGE DIRECTLY OUT TO SCREEN (TODO: HAVE THE ERROR MESSAGE LOGGED INTO A TABLE)
@@ -102,7 +97,7 @@ class dbConnection {
 			//INITALIZE RESULTS
 			$results = array();
 			//PERPARE QUERY
-			$query = $dbConnection->prepare($sql);
+			$query = self::$dbConnection->prepare($sql);
 			//EXECUTE QUERY
 			$query->execute();
 			//SET FETCH MODE
@@ -125,10 +120,10 @@ class dbConnection {
 	public static function connect(){
 		//IF NO CONNECTION EXISTS CREATE ONE
 		if(!self::$dbConnection){
-			new dbConnection();
+			self::$dbConnection = new dbConnection();
 		}
 		//RETURN THE CURRENT OR NEW CONNECTION
-		return $dbconnection;
+		return $dbConnection;
 	}
 
 }
