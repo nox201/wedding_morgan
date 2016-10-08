@@ -1,0 +1,160 @@
+/* CSS MAIN */
+
+@font-face {
+	font-family: "precious";
+	src: url("../fonts/precious.ttf") format("truetype"); 
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+}
+
+.precious {
+	font-family: precious;
+}
+
+/* BACKGROUND COLOURS */
+.bg-cream {
+	background-color: #FFFFE6;
+}
+
+.bg-silver {
+	background-color: #C0C0C0;
+}
+
+.bg-fuchsia {
+	background-color: #FF4DFF;
+}
+
+.bg-grey {
+	background-color: #F5F5F5;
+}
+
+/* COLOURS */
+.cream {
+	color: #FFFFE6;
+}
+
+.silver {
+	color: #C0C0C0;
+}
+
+.fuchsia {
+	color: #FF4DFF;
+}
+
+/* TITLE */
+.title {
+	font-family: "precious";
+	font-size: 7rem;
+	color: #FF4DFF;
+}
+
+/* HEADER */
+.heading-text {
+	font-size: 5rem;
+	text-shadow: 2px 2px #C0C0C0;
+}
+
+.subheading-text dt {
+	font-size: 3rem;
+}
+
+.subheading-text dd {
+	font-size: 2rem;
+}
+
+/* FOOTER */
+.footer {
+	font-size: 10px;
+	position: static;
+	bottom: 0px;
+}
+
+/* MISC */
+.margin-top {
+	margin-top: 15px;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.bg {
+	background-size: cover;
+}
+
+/* CLOCK */
+.clock {
+
+}
+
+/* PHRASES */
+.phrase-row {
+	margin-bottom: 10px;
+}
+
+/* CAROUSEL */
+.carousel {
+	height: 600px;
+	background-color: #C0C0C0;
+}
+
+.carousel-heading {
+	color: purple;
+	font-family: "Arial", Helvetica, sans-serif;
+}
+
+.carousel-subheading {
+	font-family: "Comic Sans MS", cursive, serif, narrow;
+}
+
+.carousel-indicators li {
+	border-color: #FF4DFF;
+}
+
+.carousel-indicator .active {
+	background-color: #FF4DFF;
+}
+
+.photo {
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* GOOGLE MAP */
+#map {
+	height: 450px;
+	width: 100%;
+}
+
+/* STICKYNOTE */
+.stickynote {
+	margin-top: 20px;
+	background-color: #FFF1A4;
+	height: 300px;
+	width: 300px;
+	margin-left: 70px;
+	box-shadow: 4px 2px 1px #222222;
+}
+
+.stickynote-text {
+	font-size: 120%;
+	font-family: "Courier New";
+}
+
+.signature {
+	font-size: 2rem;
+	font-family: "Courier New";
+	font-weight: bold;
+	text-align: right;
+}
+
+.pinboard {
+	background-image: url("../img/pinboard.png");
+}

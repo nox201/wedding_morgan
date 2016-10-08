@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- CSS library -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/flipclock.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--FlipClock-->
+<script src="js/flipclock/compiled/flipclock.js"></script>
+
+<!-- Custom JS -->
+<script>
+
+//PHRASES
+var phrases = [];
+phrases[1] = 'PHRASE1';
+phrases[2] = 'PHRASE2';
+phrases[3] = 'PHRASE3';
+phrases[4] = 'PHRASE4';
+phrases[5] = 'PHRASE5';
+
+function rand(){
+	var num = Math.floor(Math.random() * 5 + 1);
+	return num;
+}
+
+function changePhrase(){
+	var randomNumber = rand();
+	document.getElementById('phrases').innerHTML = phrases[randomNumber];
+}
+
+//COUNTDOWN TIMER
+var clock;
+
+$(document).ready(function() {
+	//GET DATE
+	var currentDate = new Date();
+	//SET FUTURE DATE TO 2017-08-01 00:00:00
+	var futureDate  = new Date();
+	futureDate.setDate(7);
+	futureDate.setMonth(09);
+	futureDate.setFullYear(2017);
+	futureDate.setHours(0);
+	futureDate.setMinutes(0);
+	futureDate.setSeconds(0);
+	//CALCULATE DIFFERENCE IN SECONDS BETWEEN CURRENT AND FUTURE DATE
+	var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
+	//INSTANTIATE FLIPCLOCK
+	clock = $('.clock').FlipClock(diff, {
+		clockFace: 'DailyCounter',
+		showSeconds: true,
+		countdown: true
+	});
+});
+
+//NAVBAR ACTIVE STATE
+$(".nav a").on("click", function(){
+   $(".nav").find(".active").removeClass("active");
+   $(this).parent().addClass("active");
+});
+
+</script>
+</head>
+
+<body onload="changePhrase()">
+
+<div class="container-fluid bg bg-silver text-center">
+	
+	<!--NAVBAR-->
+	<nav class="navbar navbar-inverse" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand precious" href="home.html">The Morgan Wedding</a>
+			</div>
+			<ul class="nav navbar-nav">
+			<li class=" active"><a href="Home.html">Home</a></li>
+			<li><a href="photo.html">Photos</a></li>
+			<li><a href="info.html">Information</a></li>
+			<li><a href="rsvp.php">RSVP</a></li>
+			<li><a href="pinboard.php">Pinboard</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!--TITLE-->
+	<div class="row">
+		<div class="col-md-12">
+			<div class="well bg-cream">
+				<h1 class="title">The Morgan Wedding</h1>
+			</div>
+		</div>
+	</div>
+	
+	<!--COUNTDOWN CLOCK-->
+	<div class="row heading">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<div class="well bg-grey">
+				<h1 class="heading-text">THE COUNTDOWN</h1>
+				<div class="clock" data-toggle="tooltip" title="Don't panic"></div>
+			</div>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+	
+	<!--ABOUT THEM-->
+	<div class="well bg-cream">
+		<div class="row">
+			<div class="col-md-4">
+				<p class="title" style="font-size:45px">How it all began...</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus varius viverra enim, vitae placerat ante vestibulum fringilla. Phasellus nulla urna, vehicula vel risus ut, ullamcorper lobortis justo. Fusce tempus, tortor faucibus aliquam ullamcorper, elit quam elementum elit, sit amet volutpat felis nisi sit amet justo. Etiam at mollis nisi, a varius lorem. Nunc nec dolor dapibus, volutpat elit a, molestie mauris. Donec in dui vel lorem sagittis imperdiet. Proin dictum sapien vitae neque luctus aliquam.
+
+In ac quam a lacus cursus viverra. Vestibulum porttitor elit arcu, sed tincidunt sem tempor at. Morbi ut tellus sit amet ligula fermentum maximus id eu purus. Ut tempus ut justo eget ullamcorper. Proin vel quam ac lectus molestie consectetur. Cras rutrum congue turpis, rutrum interdum justo efficitur eget. Mauris non leo id arcu ultrices faucibus. Fusce egestas eros ullamcorper risus tincidunt lobortis.
+
+Suspendisse lorem ligula, maximus eu cursus semper, luctus vitae purus. Quisque id arcu massa. Maecenas suscipit sagittis volutpat. Suspendisse in feugiat tortor. Ut pharetra urna in ligula tempus porttitor. Aenean elementum arcu sed elit tristique, et imperdiet turpis dictum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut eleifend eu enim pretium porta. Curabitur pellentesque porta vestibulum. Pellentesque eleifend in libero quis lobortis. Pellentesque ut turpis elit.
+
+Pellentesque non cursus risus, eu viverra turpis. In hac habitasse platea dictumst. Quisque egestas ut ante a pellentesque. Nulla sollicitudin condimentum nunc sed fermentum. Maecenas lobortis nibh quis ex tincidunt cursus. Suspendisse tincidunt turpis pharetra vehicula semper. Nam mi diam, rutrum ut justo vitae, laoreet imperdiet ante. Nam gravida placerat libero. Fusce efficitur convallis massa, sed tincidunt risus pharetra maximus. Cras porta nulla eget quam hendrerit facilisis.</p>
+			</div>
+			<div class="col-md-8">
+				<img class="photo" src="./img/photo1.jpg">
+			</div>
+		</div>
+	</div>
+
+	<!--ENTHUSIASM BAR-->
+	<div class="row">
+	<div class="col-md-2">
+	</div>
+	<div class="col-md-8">
+		<h3 class="subheading-text">ENTHUSIASM LEVELS</h3>
+		<div class="progress">
+			<div class="progress-bar progress-bar-striped active col-md-8" style="width:100%">
+				<p>120%</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-2">
+	</div>
+	</div>
+
+	<!--PHRASES-->
+	<div class="container span-12 text-center phrase-row">
+		<h3 id="phrases">TEST</h3>
+	</div>
+	
+	<!--FOOTER-->
+	<div class="footer">
+		<p>Site constructed by Lawrence Wood. Images and design reserved. Further information available on request.</p>
+	</div>
+
+</div>
+
+</body>
